@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <h1>Votes</h1>
+
+        <form action="/votes/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>
+                <label for="subject">Subject</label> <input id="subject" name="subject" type="text">
+            </p>
+            <p>
+                <label for="vote_taken">Vote Taken</label> <input id="vote_taken" name="vote_taken" type="datetime-local">
+            </p>
+            <p>
+                <label for="yes_votes">Yes Votes</label> <input id="yes_votes" name="yes_votes" type="number">
+            </p>
+            <p>
+                <label for="no_votes">No Votes</label> <input id="no_votes" name="no_votes" type="number">
+            </p>
+
+            <input type="submit" value="Save">
+
+        </form>
+
+        <ul>
+            {% for vote in results %}
+                <li><a href="/votes/{{ vote.id }}/">{{ vote.subject }} - {{ vote.yes_votes }}/{{ vote.no_votes }} on {{ vote.vote_taken }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

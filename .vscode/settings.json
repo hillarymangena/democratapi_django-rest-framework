@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/root/.local/share/virtualenvs/democratapi-XoziEOKZ/bin/python",
+    "python.formatting.provider": "black"
+}
